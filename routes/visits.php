@@ -1,4 +1,9 @@
 <?php
 
-// Placeholder so routes/web.php can load this file.
-// The member who owns this feature replaces it with their own routes.
+use App\Http\Controllers\VisitController;
+use Illuminate\Support\Facades\Route;
+
+Route::middleware('auth')->group(function () {
+    // F7 Visit Records
+    Route::resource('visits', VisitController::class)->except(['show']);
+});
